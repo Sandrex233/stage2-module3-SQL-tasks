@@ -16,8 +16,8 @@ SELECT *
 FROM student
 ORDER BY name DESC;
 
-SELECT DISTINCT student.*
-FROM student
-         JOIN payment ON student.id = payment.student_id
-WHERE payment.amount > 1000
-ORDER BY student.birthday ASC;
+SELECT DISTINCT s.id, s.name, s.birthday
+FROM student s
+         INNER JOIN payment p ON s.id = p.student_id
+WHERE p.amount > 1000
+ORDER BY s.birthday ASC;
